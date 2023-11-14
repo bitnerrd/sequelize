@@ -79,7 +79,7 @@ const _update = async (req, res) => {
 };
 
 // Delete
-const _delete = (req, res) => {};
+const _delete = (req, res) => { };
 
 //Delete All
 const _deleteAll = async (req, res) => {

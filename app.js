@@ -2,7 +2,6 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const Sequelize = require("sequelize");
 
 // Cross-Origin Resource Sharing
 const corsOptions = {
@@ -17,7 +16,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/", require("./routes/index"));
 app.use("/admin", require("./routes/admin"));
 
-// Sync PostgreSQL Models
 const db = require("./config");
 db.sequelize
   .sync()
@@ -28,7 +26,6 @@ db.sequelize
     console.log(`Database Models Failed to Sync... ${err.message}`);
   });
 
-// Development Server
 app.listen(process.env.PORT, () => {
   console.log(`Server is up on port ${process.env.PORT}`);
 });
